@@ -2,14 +2,163 @@
 -- 31: Checkerboard Organization --
 
 mem1 = nearest printer
-a:
-if myitem != datacube:
-	takefrom mem1
-	step w,n,e
+if se == hole or
+ sw == datacube or
+ ne == printer:
+	if ne == printer:
+		takefrom mem1
+		step se
+		step se
+		step se
+		step s
+		drop
+		takefrom mem1
+		step se
+		step s
+		step s
+		step s
+		drop
+		takefrom mem1
+		step sw
+		step sw
+		step s
+		drop
+		takefrom mem1
+		step e
+		step se
+		step se
+		drop
+		takefrom mem1
+		step sw
+		step s
+		drop
+		takefrom mem1
+		step w
+		drop
+	else:
+		if se == hole:
+			takefrom mem1
+			step sw
+			step s
+			step s
+			step s
+			drop
+			takefrom mem1
+			step w
+			step w
+			step w
+			step sw
+			drop
+			takefrom mem1
+			step se
+			step se
+			step s
+			drop
+			takefrom mem1
+			step e
+			drop
+			takefrom mem1
+			step nw
+			step n
+			drop
+			takefrom mem1
+			step n
+			drop
+		else:
+			takefrom mem1
+			step w
+			step nw
+			step nw
+			step sw
+			drop
+			takefrom mem1
+			step sw
+			step sw
+			step sw
+			step s
+			drop
+			takefrom mem1
+			step se
+			step se
+			step e
+			step ne
+			drop
+			takefrom mem1
+			step ne
+			step se
+			step e
+			drop
+			takefrom mem1
+			step ne
+			step n
+			drop
+		endif
+	endif
 else:
-	step nw,sw,ne,se
-	if c != datacube:
+	step ne
+	if n == wall:
+		if se == hole:
+			takefrom mem1
+			step e
+			step e
+			step e
+			step ne
+			drop
+			takefrom mem1
+			step nw
+			step nw
+			step w
+			drop
+			takefrom mem1
+			step se
+			step e
+			drop
+			takefrom mem1
+			step ne
+			step e
+			drop
+		else:
+			takefrom mem1
+			step ne
+			step ne
+			step e
+			drop
+			takefrom mem1
+			step sw
+			step sw
+			step w
+			drop
+			takefrom mem1
+			step sw
+			step s
+			step se
+			drop
+			takefrom mem1
+			step nw
+			step w
+			drop
+		endif
+	else:
+		takefrom mem1
+		step sw
+		step sw
+		step sw
+		step w
+		drop
+		takefrom mem1
+		step se
+		step se
+		step se
+		step e
+		drop
+		takefrom mem1
+		step w
+		step w
+		step w
+		drop
+		takefrom mem1
+		step w
+		step sw
 		drop
 	endif
 endif
-jump a

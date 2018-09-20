@@ -1,0 +1,73 @@
+-- 7 Billion Humans (2145) --
+-- 63: Defrag Disordered --
+
+step ne
+if nw == datacube and
+ w != worker:
+	pickup nw
+	step ne
+	step n
+	step n
+	step n
+	step n
+	step n
+	drop
+	step s
+	step s
+	step s
+	pickup s
+	step n
+	step n
+	drop
+	end
+endif
+if e == worker:
+	pickup n
+	step nw
+	step n
+	step n
+	step n
+	step n
+	drop
+	step se
+	pickup s
+	drop
+	step se
+	pickup e
+	step n
+	step n
+	drop
+	end
+endif
+if w == worker:
+	step n
+	pickup n
+	step ne
+	step n
+	step n
+	step n
+	step n
+	drop
+	step se
+	step s
+	step s
+	pickup s
+	step n
+	drop
+	end
+endif
+pickup n
+step n
+step n
+step n
+step n
+step n
+step n
+drop
+step se
+step s
+pickup sw
+step n
+drop
+
+

@@ -1,0 +1,148 @@
+-- 7 Billion Humans (2145) --
+-- 54: Terrain Leveler --
+
+step n
+step n
+if n == datacube and
+ c != datacube:
+	step n
+	mem1 = set c
+	step n
+	mem1 = calc mem1 + c
+	step n
+	mem1 = calc mem1 + c
+	step n
+	mem1 = calc mem1 + c
+	step n
+	mem1 = calc mem1 + c
+	step n
+	mem1 = calc mem1 + c
+	step n
+	mem1 = calc mem1 + c
+	pickup c
+	a:
+	if nw != worker and
+	 ne != worker:
+		jump a
+	endif
+	if nw == worker and
+	 ne == worker:
+		step w
+		b:
+		if w != datacube:
+			jump b
+		endif
+		mem1 = calc mem1 + w
+		step e
+		step e
+		mem1 = calc mem1 + e
+		mem1 = calc mem1 / 49
+		step w
+		write mem1
+		drop
+	else:
+		mem2 = calc w + e
+		mem1 = calc mem1 + mem2
+		write mem1
+		drop
+		mem4 = calc 0 + 0
+		mem4 = calc 0 + 0
+		if ne == worker:
+			step e
+			c:
+			if e != datacube:
+				jump c
+			endif
+			mem1 = set e
+			step w
+			pickup c
+		else:
+			step w
+			d:
+			if w != datacube:
+				jump d
+			endif
+			mem1 = set w
+			step e
+			pickup c
+		endif
+		write mem1
+		drop
+	endif
+else:
+	if c != datacube:
+		step n
+		step n
+	endif
+	mem1 = set c
+	step n
+	mem1 = calc mem1 + c
+	step n
+	mem1 = calc mem1 + c
+	step n
+	mem1 = calc mem1 + c
+	step n
+	mem1 = calc mem1 + c
+	step n
+	mem1 = calc mem1 + c
+	step n
+	mem1 = calc mem1 + c
+	pickup c
+	write mem1
+	drop
+	if e != worker or
+	 w != worker:
+		if w != worker:
+			step w
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			step e
+		else:
+			step e
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			mem4 = calc 0 + 0
+			step w
+		endif
+	else:
+		step n
+		mem4 = calc 0 + 0
+		mem4 = calc 0 + 0
+		mem4 = calc 0 + 0
+		mem4 = calc 0 + 0
+		mem4 = calc 0 + 0
+		mem4 = calc 0 + 0
+		mem4 = calc 0 + 0
+		step s
+	endif
+	e:
+	if w != datacube and
+	 e != datacube:
+		jump e
+	endif
+	if e == datacube:
+		mem1 = set e
+	else:
+		mem1 = set w
+	endif
+	pickup c
+	write mem1
+	drop
+endif
+f:
+step s
+pickup c
+write mem1
+drop
+jump f
+
+
